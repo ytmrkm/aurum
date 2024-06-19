@@ -45,7 +45,7 @@ jobs:
         id: prep
         run: |
           if [ -z "${{ inputs.datecode }}" ]; then
-            echo "datecode=$(date -u "+%Y-%m-%d")" >> $GITHUB_OUTPUT
+            echo "datecode=$(date -u "+%Y%m%d")" >> $GITHUB_OUTPUT
           else
             echo "datecode=${{ inputs.datecode }}" >> $GITHUB_OUTPUT
           fi
