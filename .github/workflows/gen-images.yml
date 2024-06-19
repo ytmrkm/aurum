@@ -103,7 +103,8 @@ jobs:
           if-no-files-found: error
       - uses: ncipollo/release-action@v1
         with:
-          tag: aurumOS ${{ needs.prepare.outputs.datecode }}
+          name: aurumOS ${{ needs.prepare.outputs.datecode }}
+          tag: ${{ needs.prepare.outputs.datecode }}
           artifacts: distdir-${{ needs.prepare.outputs.datecode }}/*
       - name: Generate summary
         run: |
