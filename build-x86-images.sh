@@ -16,12 +16,11 @@ usage() {
 	Usage: $PROGNAME [options ...] [-- mklive options ...]
 
 	Wrapper script around mklive.sh for several standard flavors of live images.
-	Adds void-installer and other helpful utilities to the generated images.
+	Adds system-installer and other helpful utilities to the generated images.
 
 	OPTIONS
 	 -a <arch>     Set XBPS_ARCH in the image
-	 -b <variant>  One of base, enlightenment, xfce, mate, cinnamon, gnome, kde,
-	               lxde, or lxqt (default: base). May be specified multiple times
+	 -b <variant>  One of base, desktop (default: base). May be specified multiple times
 	               to build multiple variants
 	 -d <date>     Override the datestamp on the generated image (YYYYMMDD format)
 	 -t <arch-date-variant>
@@ -84,10 +83,10 @@ build_variant() {
         base)
             SERVICES="$SERVICES dhcpcd wpa_supplicant acpid"
         ;;
-        cinnamon)
-            PKGS="$PKGS $XORG_PKGS lightdm lightdm-gtk3-greeter cinnamon gnome-keyring colord gnome-terminal gvfs-afc gvfs-mtp gvfs-smb udisks2 firefox"
+        desktop)
+            PKGS="$PKGS $XORG_PKGS lightdm lightdm-gtk3-greeter xfce4 gnome-keyring colord gnome-terminal gvfs-afc gvfs-mtp gvfs-smb udisks2 firefox"
             SERVICES="$SERVICES dbus lightdm NetworkManager polkitd"
-            LIGHTDM_SESSION=cinnamon
+            LIGHTDM_SESSION=xfce
         ;;
         *)
             >&2 echo "Unknown variant $variant"
