@@ -19,7 +19,7 @@ on:
         type: string
       live_flavors:
         description: "Flavors to build live ISOs for"
-        default: "gnome"
+        default: "cinnamon"
         required: false
         type: string
 
