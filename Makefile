@@ -52,7 +52,7 @@ distdir-$(DATECODE):
 	mkdir -p distdir-$(DATECODE)
 
 dist: distdir-$(DATECODE)
-	mv void*$(DATECODE)* distdir-$(DATECODE)/
+	mv aurum*$(DATECODE)* distdir-$(DATECODE)/
 
 live-iso-all: $(ALL_LIVE_ISO)
 
