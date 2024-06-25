@@ -20,7 +20,7 @@ usage() {
 
 	OPTIONS
 	 -a <arch>     Set XBPS_ARCH in the image
-	 -b <variant>  One of base, desktop (default: base). May be specified multiple times
+	 -b <variant>  One of base, standard, lite (default: base). May be specified multiple times
 	               to build multiple variants
 	 -d <date>     Override the datestamp on the generated image (YYYYMMDD format)
 	 -t <arch-date-variant>
@@ -83,10 +83,15 @@ build_variant() {
         base)
             SERVICES="$SERVICES dhcpcd wpa_supplicant acpid"
         ;;
-        desktop)
-            PKGS="$PKGS $XORG_PKGS lightdm lightdm-gtk3-greeter xfce4 gnome-keyring colord gnome-terminal gvfs-afc gvfs-mtp gvfs-smb udisks2 firefox"
+        standard)
+            PKGS="$PKGS $XORG_PKGS lightdm lightdm-gtk3-greeter budgie-desktop gnome-keyring colord gnome-terminal nautilus gvfs-afc gvfs-mtp gvfs-smb udisks2 firefox vlc libreoffice"
             SERVICES="$SERVICES dbus lightdm NetworkManager polkitd"
-            LIGHTDM_SESSION=xfce
+            LIGHTDM_SESSION=budgie
+        ;;
+	lite)
+            PKGS="$PKGS $XORG_PKGS lightdm lightdm-gtk3-greeter budgie-desktop gnome-keyring colord gnome-terminal nautilus gvfs-afc gvfs-mtp gvfs-smb udisks2 firefox vlc"
+            SERVICES="$SERVICES dbus lightdm NetworkManager polkitd"
+            LIGHTDM_SESSION=budgie
         ;;
         *)
             >&2 echo "Unknown variant $variant"
