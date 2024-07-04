@@ -73,9 +73,9 @@ build_variant() {
     IMG=aurumOS-${variant}-${ARCH}-${DATE}.iso
     GRUB_PKGS="grub-i386-efi grub-x86_64-efi"
     A11Y_PKGS="espeakup void-live-audio brltty"
-    PKGS="dialog cryptsetup lvm2 mdadm void-docs-browse xtools-minimal xmirror chrony $A11Y_PKGS $GRUB_PKGS"
+    PKGS="dialog cryptsetup lvm2 mdadm void-docs-browse xtools-minimal xmirror chrony nix $A11Y_PKGS $GRUB_PKGS"
     XORG_PKGS="xorg-minimal xorg-input-drivers xorg-video-drivers setxkbmap xauth font-misc-misc terminus-font dejavu-fonts-ttf orca"
-    SERVICES="sshd chronyd"
+    SERVICES="sshd chronyd nix-daemon"
 
     LIGHTDM_SESSION=''
 
@@ -84,7 +84,7 @@ build_variant() {
             SERVICES="$SERVICES dhcpcd wpa_supplicant acpid"
         ;;
         standard)
-            PKGS="$PKGS $XORG_PKGS lightdm lightdm-gtk3-greeter gnome gnome-keyring colord gnome-terminal nautilus gvfs-afc gvfs-mtp gvfs-smb udisks2 firefox vlc libreoffice"
+            PKGS="$PKGS $XORG_PKGS lightdm lightdm-gtk3-greeter gnome firefox vlc libreoffice"
             SERVICES="$SERVICES dbus lightdm NetworkManager polkitd"
             LIGHTDM_SESSION=gnome
         ;;
