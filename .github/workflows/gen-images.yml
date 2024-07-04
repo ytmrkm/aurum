@@ -59,7 +59,7 @@ jobs:
     if: ${{ inputs.live_iso_flag }}
 
     container:
-      image: 'ghcr.io/void-linux/void-glibc-full:20231230R1'
+      image: 'ghcr.io/ytmrkm/aurum-buildenv-glibc:20240704R1'
       options: --privileged
       volumes:
         - /dev:/dev
