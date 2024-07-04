@@ -84,7 +84,7 @@ build_variant() {
             SERVICES="$SERVICES dhcpcd wpa_supplicant acpid"
         ;;
         standard)
-            PKGS="$PKGS $XORG_PKGS budgie-desktop gnome-keyring colord gnome-terminal nautilus gvfs-afc gvfs-mtp gvfs-smb udisks2 firefox vlc libreoffice"
+            PKGS="$PKGS $XORG_PKGS lightdm lightdm-gtk3-greeter budgie-desktop gnome-keyring colord gnome-terminal nautilus gvfs-afc gvfs-mtp gvfs-smb udisks2 firefox vlc libreoffice"
             SERVICES="$SERVICES dbus lightdm NetworkManager polkitd"
             LIGHTDM_SESSION=budgie
         ;;
