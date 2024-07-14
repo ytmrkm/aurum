@@ -67,6 +67,11 @@ setup_pipewire() {
     ln -sf /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf "$INCLUDEDIR"/etc/alsa/conf.d
 }
 
+add_wallpapers() {
+    mkdir -p "$INCLUDEDIR"/usr/share/backgrounds
+    cp data/wallpapers/* "$INCLUDEDIR"/usr/share/backgrounds/
+}
+
 build_variant() {
     variant="$1"
     shift
@@ -111,6 +116,7 @@ EOF
 
     if [ "$variant" != base ]; then
         setup_pipewire
+	
     fi
 
     ./mklive.sh -a "$ARCH" -o "$IMG" -p "$PKGS" -S "$SERVICES" -I "$INCLUDEDIR" ${REPO} "$@"
