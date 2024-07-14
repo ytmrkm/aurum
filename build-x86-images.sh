@@ -116,7 +116,10 @@ EOF
 
     if [ "$variant" != base ]; then
         setup_pipewire
-	
+	add_wallpapers
+    fi
+    if [ "$variant" == standard]; then
+        cp -r data/dconf/standard/* "$INCLUDEDIR"/etc/dconf/db
     fi
 
     ./mklive.sh -a "$ARCH" -o "$IMG" -p "$PKGS" -S "$SERVICES" -I "$INCLUDEDIR" ${REPO} "$@"
