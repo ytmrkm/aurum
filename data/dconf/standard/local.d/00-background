@@ -1,0 +1,8 @@
+# Specify the dconf path
+[org/gnome/desktop/background]
+
+# Specify the path to the desktop background image file
+picture-uri='file:///usr/share/backgrounds/Pic_0013.jpeg'
+
+# Specify one of the rendering options for the background image:
+picture-options='scaled'
